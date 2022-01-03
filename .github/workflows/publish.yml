@@ -20,13 +20,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
-      - name: extract-app
+      - id: extract-app
         uses: actions/github-script@0.9.0
         with:
-          script: |
-            console.log(context)
-            const app_name = context.ref.split('/')[3]
-            core.setOutput('app_name', app_name)
+          script: return context.ref.split('/')[3]
+          result-encoding: string
       - run: echo "${{ github.ref_name }}"
       - run: echo "${{ steps.extract-app.outputs.app_name }}"
 #      - name: publish
