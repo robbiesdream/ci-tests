@@ -21,7 +21,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org
       - name: publish
-        run: echo ${{ github. }}
+        run: echo ${{ github.ref_name }}
 #      - name: publish
 #        run: npm publish --access public
 #        working-directory: .
