@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
-      - uses: actions/github-script@5
+      - uses: actions/github-script@v5
         id: extract-app
         with:
           script: return context.ref.split('/')[3]
