@@ -23,13 +23,9 @@ jobs:
       - uses: actions/github-script@v5
         id: extract-app
         with:
-          script: |
-            const reference = context.ref.split('/')[3]
-            console.log(reference)
-            return reference
+          script: return context.ref.split('/')[3]
           result-encoding: string
-      - run: echo "${{ steps.extract-app.outputs.app_name }}"
-      - run: echo "${{ steps.extract-app }}"
+      - run: echo "${{ steps.extract-app.outputs.result }}"
 #      - name: publish
 #        run: npm publish --access public
 #        working-directory: .
