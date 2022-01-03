@@ -29,6 +29,7 @@ jobs:
             return reference
           result-encoding: string
       - run: echo "${{ steps.extract-app.outputs.app_name }}"
+      - run: echo "${{ steps.extract-app }}"
 #      - name: publish
 #        run: npm publish --access public
 #        working-directory: .
