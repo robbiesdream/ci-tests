@@ -21,7 +21,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org
       - name: extract-app
-        uses: actions/github-script
+        uses: actions/github-script@0.9.0
         with:
           script: |
             const app_name = context.payload.ref_name.value.split('/')[1]
