@@ -17,9 +17,9 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
       - name: node
-        uses: actions/setup-node@v1.4.2
+        uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
           registry-url: https://registry.npmjs.org
       - name: publish
         run: npm publish --access public
