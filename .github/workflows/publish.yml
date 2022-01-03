@@ -3,7 +3,7 @@ name: "publish"
 on:
   push:
     tags:
-      - 'release/*-v*.*.*'
+      - 'release/*/v*.*.*'
 
 jobs:
   release:
@@ -20,8 +20,14 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
-      - name: publish
-        run: echo ${{ github.ref_name }}
+      - name: extract-app
+        uses: actions/github-script
+        with:
+          script: |
+            const app_name = context.payload.ref_name.value.split('/')[1]
+            core.setOutput('app_name', app_name)
+      - run: echo "${{ github.ref_name }}"
+      - run: echo "${{ steps.extract-app.outputs.app_name }}"
 #      - name: publish
 #        run: npm publish --access public
 #        working-directory: .
