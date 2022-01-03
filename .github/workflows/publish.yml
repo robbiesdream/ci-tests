@@ -25,7 +25,7 @@ jobs:
         with:
           script: |
             console.log(context)
-            const app_name = github.ref_name.split('/')[1]
+            const app_name = context.ref.split('/')[3]
             core.setOutput('app_name', app_name)
       - run: echo "${{ github.ref_name }}"
       - run: echo "${{ steps.extract-app.outputs.app_name }}"
